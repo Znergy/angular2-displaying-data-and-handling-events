@@ -31,6 +31,10 @@ import { Component } from '@angular/core';
       <span (click)="starClass = 'glyphicon glyphicon-star gi-2x'" class="{{ starClass }}"></span>
       <h6>Third star, fills and emptys on click</h6>
       <span (click)="isStarFilled = !isStarFilled" [class]="fillStar(isStarFilled)"></span>
+      <h6>Star Component</h6>
+      <!-- Base Class, property binding, click event binding -->
+
+      <favorite-star [is-favorite]="post.isFavorite" (change)="onFavoriteChange($event)"></favorite-star>
     </div>
   `,
   styles: [
@@ -41,6 +45,17 @@ import { Component } from '@angular/core';
   `]
 })
 export class AppComponent {
+  post = {
+    title: 'title',
+    isFavorite: true
+  }
+
+  onFavoriteChange($event) {
+    console.log($event);
+  }
+
+
+
   starClass = "glyphicon glyphicon-star-empty gi-2x";
   title = "Created using property binding and interporlation";
   title2 = "Angular App";
@@ -48,6 +63,12 @@ export class AppComponent {
   isActive = true;
   isClassVisible = false;
   isStarFilled = false;
+  isFavorite = false;
+
+  // super cool trick here.. !this.isFavorite always sets it to the opposite (very cool)
+  onClick() {
+    this.isFavorite = !this.isFavorite;
+  }
 
   // due to both the div and the button having a click event attached, when you click the button it triggers both events. To stop this we can say '$event.stopPropagation()'
   doSomething($event) {
