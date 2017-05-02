@@ -6,9 +6,9 @@ import { Component } from '@angular/core';
     <messages></messages>
     <h1>{{ title }}</h1>
     <h1 [textContent]="title"></h1>
-    <img src="{{ imageURL }}" />
+    <!-- <img src="{{ imageURL }}" />
     <img [src]="imageURL" />
-    <img bind-src="imageURL" />
+    <img bind-src="imageURL" /> -->
     <h3>Property binding</h3>
     <button class="btn btn-primary" [class.active]="isActive">Submit</button>
     <button class="btn btn-primary" [style.backgroundColor]="isActive ? 'blue' : 'gray'">Submit</button>
@@ -16,10 +16,18 @@ import { Component } from '@angular/core';
     <div (click)="onDivClick()">
       <button (click)="doSomething($event)">Click Me</button>
     </div>
+    <h3>Two-way binding</h3>
+    <div>
+      <!-- <input type="text" [value]="title2" (input)="title2 = $event.taget.value"> -->
+      <input type="text" [(ngModel)]="title2">
+      <input type="button" (click)="title2 = ''" value="Clear">
+      <p>Two way binding: {{ title2 }}</p>
+    </div>
   `
 })
 export class AppComponent {
-  title = "This is a title";
+  title = "Created using property binding and interporlation";
+  title2 = "Angular App";
   imageURL = "http://www.jqueryscript.net/images/Simplest-Responsive-jQuery-Image-Lightbox-Plugin-simple-lightbox.jpg";
   isActive = true;
 
