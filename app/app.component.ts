@@ -33,8 +33,11 @@ import { Component } from '@angular/core';
       <span (click)="isStarFilled = !isStarFilled" [class]="fillStar(isStarFilled)"></span>
       <h6>Star Component</h6>
       <!-- Base Class, property binding, click event binding -->
-
+      <span class="glyphicon gi-2x" [class.glyphicon-star-empty]="!isFavorite" [class.glyphicon-star]="isFavorite" (click)="onClick()"></span>
       <favorite-star [is-favorite]="post.isFavorite" (change)="onFavoriteChange($event)"></favorite-star>
+    </div>
+    <div class="well">
+      <like></like>
     </div>
   `,
   styles: [

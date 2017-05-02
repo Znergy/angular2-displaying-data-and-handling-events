@@ -5,6 +5,7 @@ import { Component, Input, Output, EventEmitter } from '@angular/core';
   templateUrl: 'app/star.template.html',
   styles: [
   `
+  .glyphicon-star  { color: orange; }
   .gi-2x { font-size: 2em; }
   `],
   outputs: ['clicky:favoriteClicky'] // or outputs: ['change', 'clicky']

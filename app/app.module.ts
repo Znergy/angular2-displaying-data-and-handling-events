@@ -6,10 +6,11 @@ import { MessagesService } from './messages.service';
 import { AutoGrowDirective } from './auto-grow.directive';
 import { FormsModule } from '@angular/forms';
 import { StarComponent } from './star.component';
+import { LikeComponent } from './like.component';
 
 @NgModule({
   imports:      [ BrowserModule, FormsModule ],
-  declarations: [ AppComponent, MessagesComponent, AutoGrowDirective, StarComponent],
+  declarations: [ AppComponent, MessagesComponent, AutoGrowDirective, StarComponent, LikeComponent],
   providers: [ MessagesService ],
   bootstrap:    [ AppComponent ]
 })
