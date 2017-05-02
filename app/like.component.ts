@@ -7,27 +7,31 @@ import { Component } from '@angular/core';
     [class.like]="isLiked"
     [class.neutral]="!isLiked"
     (click)="onClick()"></span>
-    <span class="like-count">{{ number }}</span>
+    <span class="like-count">{{ totalLikes }}</span>
   `,
   styles: [
     `
+    .glyphicon-heart { cursor: pointer; }
     .gi-2x { font-size: 2em; }
-    .like { color: deeppink; cursor: pointer; }
+    .like { color: deeppink; }
     .neutral { color: #ccc; }
     .like-count { font-size: 25px;  }
   `]
 })
 
 export class LikeComponent {
-  number: number = 10;
+  totalLikes: number = 10;
   isLiked: boolean = false;
 
   onClick() {
     this.isLiked = !this.isLiked;
-    if(this.isLiked) {
-      this.number = this.number + 1;
-    } else {
-      this.number = this.number - 1;
-    }
+    /*** how I did the logic ***/
+    // if(this.isLiked) {
+    //   this.totalLikes = this.number + 1;
+    // } else {
+    //   this.totalLikes = this.number - 1;
+    // }
+    /*** how the instructor did the logic ***/
+    this.totalLikes += this.isLiked ? 1 : -1;
   }
 }
