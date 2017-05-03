@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
 
 @Component({
   selector: 'like',
@@ -20,8 +20,8 @@ import { Component } from '@angular/core';
 })
 
 export class LikeComponent {
-  totalLikes: number = 10;
-  isLiked: boolean = false;
+  @Input() totalLikes: number = 0;
+  @Input() isLiked: boolean = false;
 
   onClick() {
     this.isLiked = !this.isLiked;

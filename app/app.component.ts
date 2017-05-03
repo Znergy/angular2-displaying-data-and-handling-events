@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { LikeComponent } from './like.component';
 
 @Component({
   selector: 'my-app',
@@ -37,7 +38,7 @@ import { Component } from '@angular/core';
       <favorite-star [is-favorite]="post.isFavorite" (change)="onFavoriteChange($event)"></favorite-star>
     </div>
     <div class="well">
-      <like></like>
+      <like [totalLikes]="tweet.totalLikes" [isLiked]="tweet.isLiked"></like>
     </div>
   `,
   styles: [
@@ -51,6 +52,11 @@ export class AppComponent {
   post = {
     title: 'title',
     isFavorite: true
+  }
+
+  tweet = {
+    totalLikes: 10,
+    isLiked: false
   }
 
   onFavoriteChange($event) {
